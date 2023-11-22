@@ -2,11 +2,11 @@ import { Breadcrumb } from "../component/breadcrumb/breadcrumb"
 import { GridBasic } from "../component/grid/grid-basic/grid-basic"
 import { Ordenacao } from "../component/filters/ordenacao/ordenacao"
 import { ResponsePagination } from "../model/response-pagination.model"
-export class SearchViewBasic {      
+export class SearchViewBasic {
     constructor(
         breadcrumbs: Breadcrumb[] = breadcrumbsBasic()
         ,opConsulta: {descricao:string, valor:string}[] = opConsultaBasic()
-        ,lsOrdem: Ordenacao[] = [] 
+        ,lsOrdem: Ordenacao[] = []
         , grid: GridBasic = gridBasic()
         , dataRel: any[] = new Array<any>() )
         {
@@ -15,8 +15,8 @@ export class SearchViewBasic {
             this.breadcrumbs = breadcrumbs
             this.opConsulta = opConsulta
             this.lsOrdem = lsOrdem
-            this.grid = grid  
-            this.dataRel = dataRel        
+            this.grid = grid
+            this.dataRel = dataRel
     }
     chkGroup: string = "0";
     title: string
@@ -30,7 +30,7 @@ export class SearchViewBasic {
 
 function breadcrumbsBasic(): Breadcrumb[] {
     return  [
-        { title: 'Painel', router: '/painelprc/painel' }        
+        { title: 'Painel', router: '/painelprc/painel' }
     ]
 }
 
@@ -39,7 +39,7 @@ function opConsultaBasic():{descricao:string, valor:string}[]{
         { descricao: "Documento", valor: "0" }
         , { descricao: "Sequencial do RPV ou Precatório", valor: "1" }
         , { descricao: "Ação Originária", valor: "2" }
-        , { descricao: "Número do Processo no TRF5", valor: "3" }
+        , { descricao: "Número do Processo no ASC", valor: "3" }
         , { descricao: "Número do Requisitório no 1º Grau", valor: "4" }
         //, { descricao: "Vara", valor: "5" }
         , { descricao: "Ação Executória", valor: "6" }
@@ -64,7 +64,7 @@ function gridBasic():GridBasic{
             { headerName: 'Valor (R$)', field: 'valorDepositoCurrency', width: 110, sortable: true, resizable: true, filter: true },
 
         ]
-        , data: new ResponsePagination()        
+        , data: new ResponsePagination()
     }
 }
 

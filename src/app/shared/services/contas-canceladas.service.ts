@@ -19,7 +19,7 @@ export class ContasCanceladasService implements RequestSearchhByAnyServiceInterf
           return this.searchByAutuac(filter);
     }
   }
-  public searchByAutuac(filter: RequestSearchByAny): Promise<any> {      
+  public searchByAutuac(filter: RequestSearchByAny): Promise<any> {
       return this.http.post<any>(`${this.api.APIContaLevant}${filter.extParams != "1" ? '/cnl' : ''}/pesquisaPorDocumento/?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()
   }
   public searchByNumSeq(filter: RequestSearchByAny): Promise<any> {
@@ -29,7 +29,7 @@ export class ContasCanceladasService implements RequestSearchhByAnyServiceInterf
       return this.http.post<any>(`${this.api.APIContaLevant}${filter.extParams != "1" ? '/cnl' : ''}/pesquisaPorAcaoOriginaria/?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()
   }
   public searchByNumProc(filter: RequestSearchByAny): Promise<any> {
-      return this.http.post<any>(`${this.api.APIContaLevant}${filter.extParams != "1" ? '/cnl' : ''}/pesquisaNumeroProcessoNoTrf5/?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()
+      return this.http.post<any>(`${this.api.APIContaLevant}${filter.extParams != "1" ? '/cnl' : ''}/pesquisaNumeroProcessoNoASC/?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()
   }
   public searchByNumReq(filter: RequestSearchByAny): Promise<any> {
       return this.http.post<any>(`${this.api.APIContaLevant}${filter.extParams != "1" ? '/cnl' : ''}/pesquisaPorRequisitorio/?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()

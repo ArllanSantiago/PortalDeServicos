@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "trf5-PortalDeServicos": {
+    "ASC-PortalDeServicos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -34,27 +34,27 @@
                "node_modules/ngx-toastr/toastr.css"
               ],
             "scripts": [
-              "node_modules/admin-lte/plugins/jquery/jquery.js"           
-              ,"node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js"           
-              ,"node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"           
-              ,"node_modules/admin-lte/dist/js/adminlte.js"           
-              ,"node_modules/admin-lte/dist/js/demo.js"           
-              ,"node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js"     
-              ,"node_modules/admin-lte/plugins/raphael/raphael.js"   
-              ,"node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js"         
-              ,"node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.js"              
+              "node_modules/admin-lte/plugins/jquery/jquery.js"
+              ,"node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js"
+              ,"node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"
+              ,"node_modules/admin-lte/dist/js/adminlte.js"
+              ,"node_modules/admin-lte/dist/js/demo.js"
+              ,"node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js"
+              ,"node_modules/admin-lte/plugins/raphael/raphael.js"
+              ,"node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js"
+              ,"node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.js"
               ,"node_modules/admin-lte/plugins/jquery-validation/additional-methods.min.js"
               ,"node_modules/admin-lte/plugins/jquery-validation/jquery.validate.min.js"
-              ,"node_modules/admin-lte/plugins/chart.js/Chart.js"   
+              ,"node_modules/admin-lte/plugins/chart.js/Chart.js"
               ,"node_modules/admin-lte/dist/js/pages/dashboard2.js"
               ,"node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js"
               ,"node_modules/admin-lte/plugins/pace-progress/pace.min.js"
               ,"node_modules/admin-lte/plugins/bootstrap-slider/bootstrap-slider.min.js"
-              
+
             ]
           },
           "configurations": {
-            
+
             "production": {
               "budgets": [
                 {
@@ -99,10 +99,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "trf5-PortalDeServicos:build:production"
+              "browserTarget": "ASC-PortalDeServicos:build:production"
             },
             "development": {
-              "browserTarget": "trf5-PortalDeServicos:build:development"
+              "browserTarget": "ASC-PortalDeServicos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -110,7 +110,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "trf5-PortalDeServicos:build"
+            "browserTarget": "ASC-PortalDeServicos:build"
           }
         },
         "test": {
@@ -128,16 +128,16 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/admin-lte/plugins/jquery/jquery.js"           
-              ,"node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js"           
-              ,"node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"           
-              ,"node_modules/admin-lte/dist/js/adminlte.js"           
-              ,"node_modules/admin-lte/dist/js/demo.js"           
-              ,"node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js"     
-              ,"node_modules/admin-lte/plugins/raphael/raphael.js"   
-              ,"node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js"         
+              "node_modules/admin-lte/plugins/jquery/jquery.js"
+              ,"node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js"
+              ,"node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"
+              ,"node_modules/admin-lte/dist/js/adminlte.js"
+              ,"node_modules/admin-lte/dist/js/demo.js"
+              ,"node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js"
+              ,"node_modules/admin-lte/plugins/raphael/raphael.js"
+              ,"node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js"
               ,"node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.js"
-              ,"node_modules/admin-lte/plugins/chart.js/Chart.js"   
+              ,"node_modules/admin-lte/plugins/chart.js/Chart.js"
               ,"node_modules/admin-lte/dist/js/pages/dashboard2.js"
             ]
           }
@@ -145,5 +145,5 @@
       }
     }
   },
-  "defaultProject": "trf5-PortalDeServicos"
+  "defaultProject": "ASC-PortalDeServicos"
 }

@@ -33,7 +33,7 @@ export class ContasView extends SearchViewBasic {
 function lsOrdemBasic():Ordenacao[]{
     return [
         { descricao: "Nome", valor: 'beneficiario' }
-        , { descricao: "Processo", valor: 'numProcNoTrf5' }
+        , { descricao: "Processo", valor: 'numProcNoASC' }
         , { descricao: "Data", valor: 'dataDeDeposito' }
     ]
   }

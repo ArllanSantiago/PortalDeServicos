@@ -5,7 +5,7 @@ export enum HeaderGridExtrato {
     situacao = "Situação",
     dataAutuacao = "Date de Autuação",
     dataDeposito = "Data de Depósito",
-    numeroTrf5 = "Número TRF5",
+    numeroASC = "Número ASC",
     acoes = "Ações"
 
 }

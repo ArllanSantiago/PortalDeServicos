@@ -36,14 +36,14 @@ export class RequisitorioSituacaoComponent implements RequisitorioSituacaoCompon
   ngOnInit(): void {}
   onClear(){
     this.contentResponse = [];
-    this.onLoadGridData(new ResponsePagination);  
-    
+    this.onLoadGridData(new ResponsePagination);
+
     setTimeout(() => {
-      this.reqSituacaoView.chkGroup = ''  
+      this.reqSituacaoView.chkGroup = ''
     }, 100);
-     
+
     setTimeout(() => {
-      this.reqSituacaoView.chkGroup = '0'  
+      this.reqSituacaoView.chkGroup = '0'
     }, 100);
 
   }
@@ -105,7 +105,7 @@ export class RequisitorioSituacaoComponent implements RequisitorioSituacaoCompon
         + RESUMO_LINE.mSeparador
       )*/
     })
-  
+
     //Emite o objeto para exibir no modal
     this.movDetalheModalService.loadDetail.emit(new MovDetalheModel(e.rowData.numreq,resumoDetail));
   }
@@ -207,7 +207,7 @@ export class RequisitorioSituacaoComponent implements RequisitorioSituacaoCompon
       doc.text(` ${this.reqSituacaoFilter.acaoOriginaria}`, 39, proxlinha, { align: alginText })
     }
     if (this.reqSituacaoFilter.numProcesso) {
-      doc.text(`Número do Processo no TRF5: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
+      doc.text(`Número do Processo no ASC: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
       doc.text(` ${this.reqSituacaoFilter.numProcesso}`, 59, proxlinha, { align: alginText })
     }
     if (this.reqSituacaoFilter.numRequisitorio) {
@@ -257,7 +257,7 @@ export class RequisitorioSituacaoComponent implements RequisitorioSituacaoCompon
       }
       proxlinha += (DIF_BETWEEN_LINE * 2)
       //doc.getTextDimensions(dLine).y;
-      //var splitText = doc.splitTextToSize(dLine, 185);      
+      //var splitText = doc.splitTextToSize(dLine, 185);
       if (dLine) {
         //Adicionado Pag.
         if ((proxlinha + DIF_BETWEEN_LINE) >= INI_FOOTER) {

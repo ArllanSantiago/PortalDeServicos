@@ -34,7 +34,7 @@ export class RequisitorioOficioService implements RequestSearchhByAnyServiceInte
         return this.http.post<any>(`${this.endPoint}/pesquisaPorAcaoOriginaria`, filter.data).toPromise()
     }
     public searchByNumProc(filter: RequestSearchByAny): Promise<any> {
-        return this.http.post<any>(`${this.endPoint}/pesquisaNumeroProcessoNoTrf5`, filter.data).toPromise()
+        return this.http.post<any>(`${this.endPoint}/pesquisaNumeroProcessoNoASC`, filter.data).toPromise()
     }
     public searchByNumReq(filter: RequestSearchByAny): Promise<any> {
         return this.http.post<any>(`${this.endPoint}/pesquisaPorRequisitorio`, filter.data).toPromise()

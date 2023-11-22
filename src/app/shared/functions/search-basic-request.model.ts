@@ -75,7 +75,7 @@ export class RequestSearchByNumProc implements RequestSearchByAny {
             && !!ctrls['numProcesso'].value
         this.data = {
             documento: ctrls['documento'].value
-            , numProcNoTrf5: ctrls['numProcesso'].value
+            , numProcNoASC: ctrls['numProcesso'].value
             , classeReq: TipoProc[ctrls['codTipoProc'].value!]
         }
         this.msg = "Documento e Núm do Processo são campos obrigatórios"
@@ -86,7 +86,7 @@ export class RequestSearchByNumProc implements RequestSearchByAny {
     }
     data: {
         documento?: string
-        , numProcNoTrf5: string
+        , numProcNoASC: string
         , classeReq: string
     }
     valid: boolean

@@ -1,4 +1,4 @@
 export const environment = {
   production: true
-  ,api:'http://abreuh.trf5.gov.br:8080/'
+  ,api: 'http://localhost:8080/'
 };

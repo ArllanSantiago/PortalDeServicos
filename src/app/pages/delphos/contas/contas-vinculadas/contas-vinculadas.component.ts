@@ -26,7 +26,7 @@ export class ContasVinculadasComponent extends ContasComponent {
             requestContas.urlParams!.page = urlParams.page;
             utils.loading(
                 this.contasVincService.searchByCheck(requestContas, this.contasView.chkGroup).then(res => {
-                    if (!!res) {             
+                    if (!!res) {
                         /*Refinar as Colunas. Alguams propriedades vinheram fora do p*/
                         let _content = res.content.map(function (item: any) {
                             return {
@@ -37,7 +37,7 @@ export class ContasVinculadasComponent extends ContasComponent {
                             }
                         })
                         this.contasView.grid = { ...this.contasView.grid, data: { ...res, content: _content } }
-                        
+
                         /*Montando obj para os relatorios atraves das Colunas da Grid */
                         this.contasView.dataRel = _content.map((row: any) => {
                             return {
@@ -51,13 +51,13 @@ export class ContasVinculadasComponent extends ContasComponent {
                                 , "Requisitório":row.numeroRequisitorio
                                 , "Beneficiário":row.beneficiario
                             }
-                        })                       
+                        })
                     }
                 })
             ).then(() => {
                 if (this.contasView.dataRel?.length == 0) {
-                    Swal.fire("Informação", msgNotFound, "info")           
-                  } 
+                    Swal.fire("Informação", msgNotFound, "info")
+                  }
                 this.contasView.pdf = this.gerarText({
                     data: this.contasView.dataRel
                     , nameRel: this.contasView.title
@@ -106,7 +106,7 @@ export class ContasVinculadasComponent extends ContasComponent {
             doc.text(` ${this.contasView.controls['acaoOriginaria']}`, 39, proxlinha, { align: alginText })
         }
         if (this.contasView.controls['numProcesso'].value) {
-            doc.text(`Número do Processo no TRF5: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
+            doc.text(`Número do Processo no ASC: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
             doc.text(` ${this.contasView.controls['numProcesso']}`, 59, proxlinha, { align: alginText })
         }
         if (this.contasView.controls['numRequisitorio'].value) {
@@ -141,7 +141,7 @@ export class ContasVinculadasComponent extends ContasComponent {
                 _INI_PARAGRAF = INI_PARAGRAF
 
                 /*definindo a dimenssao das colunas*/
-                
+
                 configPdf.dimensionsWField.push(_INI_PARAGRAF)
                 configPdf.dimensionsWField.push(_INI_PARAGRAF)
                 configPdf.dimensionsWField.push(_INI_PARAGRAF += DIF_HEADER + Math.round(doc.getTextDimensions(dLine[field[1]]).w))
@@ -151,12 +151,12 @@ export class ContasVinculadasComponent extends ContasComponent {
                 configPdf.dimensionsWField.push(_INI_PARAGRAF += DIF_HEADER + Math.round(doc.getTextDimensions(dLine[field[5]]).w))
                 //
                 _INI_PARAGRAF = INI_PARAGRAF
-                configPdf.dimensionsWField.push(_INI_PARAGRAF)                
+                configPdf.dimensionsWField.push(_INI_PARAGRAF)
                 configPdf.dimensionsWField.push(_INI_PARAGRAF += DIF_HEADER + Math.round(doc.getTextDimensions(dLine[field[7]]).w))
 
                 // cabeçalho
                 doc.text(field[0], configPdf.dimensionsWField[0], proxlinha += (DIF_BETWEEN_LINE * 1.5), { align: 'left' })
-               
+
                 doc.text(field[1], configPdf.dimensionsWField[1], proxlinha += (DIF_BETWEEN_LINE * 1.5), { align: 'left' })
                 doc.text(field[2], configPdf.dimensionsWField[2], proxlinha, { align: 'center' })
                 doc.text(field[3], configPdf.dimensionsWField[3], proxlinha, { align: 'left' })
@@ -169,19 +169,19 @@ export class ContasVinculadasComponent extends ContasComponent {
 
 
                 doc.setFont("cambria", "normal", 12)
-                doc.line(5, proxlinha += DIF_BETWEEN_LINE, 290, proxlinha)             
+                doc.line(5, proxlinha += DIF_BETWEEN_LINE, 290, proxlinha)
                 doc.setFontSize(FONT_SIZE_BODY);
             }
             proxlinha += (DIF_BETWEEN_LINE * 2)
             //doc.getTextDimensions(dLine).y;
-            //var splitText = doc.splitTextToSize(dLine, 185);      
+            //var splitText = doc.splitTextToSize(dLine, 185);
             if (dLine) {
                 //Adicionado Pag.
-        
+
                 if ((proxlinha + (DIF_BETWEEN_LINE*4)) >= INI_FOOTER) {
                     //doc.addPage()
                     doc.addPage()
-                    proxlinha = 30                   
+                    proxlinha = 30
                     doc.setFont("cambria", "normal", 9)
                     doc.setFontSize(9)
                     page++
@@ -189,20 +189,20 @@ export class ContasVinculadasComponent extends ContasComponent {
                     doc.text(`Emitido em: ${DATE_NOW} ${HOUR_NOW}`, p_orientation == 'l' ? 240 : 140, 20);
                     doc.setFontSize(FONT_SIZE_BODY)
                 }
-                //Dados                                
+                //Dados
                 doc.text(String(dLine[field[0]]), configPdf.dimensionsWField[0], proxlinha, { align: 'left' })
-                
+
                 doc.text(String(dLine[field[1]]), configPdf.dimensionsWField[1], proxlinha+= (DIF_BETWEEN_LINE * 2), { align: 'left' })
                 doc.text(String(dLine[field[2]]), configPdf.dimensionsWField[2], proxlinha, { align: 'center' })
                 doc.text(String(dLine[field[3]]), configPdf.dimensionsWField[3], proxlinha, { align: 'left' })
                 doc.text(String(dLine[field[4]]), configPdf.dimensionsWField[4], proxlinha, { align: 'left' })
                 doc.text(String(dLine[field[5]]), configPdf.dimensionsWField[5], proxlinha, { align: 'left' })
                 doc.text(String(dLine[field[6]]), configPdf.dimensionsWField[6], proxlinha, { align: 'center' })
-          
+
 
                 doc.text(String(dLine[field[7]]), configPdf.dimensionsWField[7], proxlinha+= (DIF_BETWEEN_LINE * 2), { align: 'left' })
                 doc.text(String(dLine[field[8]]), configPdf.dimensionsWField[8], proxlinha, { align: 'left' })
-         
+
             }
         })
         let _INI_FOOTER = INI_FOOTER;

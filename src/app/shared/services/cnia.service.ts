@@ -15,15 +15,15 @@ export class CniaService {
              ,{id: 3, coddoc: 3, codpess: 3,descrpess: 'pessoa3', dthroper:'01/01/01 00:00:00',mensagem: undefined, numproc:'00003'}
              ,{id: 4, coddoc: 4, codpess: 4,descrpess: 'pessoa4', dthroper:'01/01/01 00:00:00',mensagem: undefined, numproc:'00004'}
              ,{id: 5, coddoc: 5, codpess: 5,descrpess: 'pessoa5', dthroper:'01/01/01 00:00:00',mensagem: undefined, numproc:'00005'}
-             ,{id: 6, coddoc: 6, codpess: 6,descrpess: 'pessoa6', dthroper:'01/01/01 00:00:00',mensagem: undefined, numproc:'00006'}                
+             ,{id: 6, coddoc: 6, codpess: 6,descrpess: 'pessoa6', dthroper:'01/01/01 00:00:00',mensagem: undefined, numproc:'00006'}
         ]
-        return  this.http.post<ResponsePagination>(`http://cnialog-api-eagle-hml.apps.ocp.trf5.gov.br/cnialogenviados`,{           
+        return  this.http.post<ResponsePagination>(`http://cnialog-api-eagle-hml.apps.ocp.ASC.gov.br/cnialogenviados`,{
             "codSecao": 85,
             "dthrFin": "01/01/2020 00:00:00",
-            "dthrIni": "01/01/2020 00:00:00",            
+            "dthrIni": "01/01/2020 00:00:00",
         });
         return  new Observable<ResponsePagination>((res)=>{
-            res.next({...new ResponsePagination, content: mokCnia})      
+            res.next({...new ResponsePagination, content: mokCnia})
             res.complete()
         })
 

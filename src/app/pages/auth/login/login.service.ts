@@ -6,6 +6,6 @@ import { Observable } from "rxjs";
 export class LoginService {
     constructor(private http : HttpClient){}
     doSignIn(user:any):Observable<any>{
-        return this.http.post(`http://intercomunicacaoapi-eagle-hml.apps.ocp.trf5.gov.br/login`,user)
+        return this.http.post(`http://intercomunicacaoapi-eagle-hml.apps.ocp.ASC.gov.br/login`,user)
     }
 }

@@ -24,7 +24,7 @@ export class ContasLevantadasComponent extends ContasComponent {
     }
     override onSearch(urlParams: { page: number } = { page: 0 }): void {
         let requestContas = getRequestContas(this.contasView.chkGroup, this.contasView.controls)
-     
+
     }
     gerarText(builder: any, p_orientation: 'l' | 'p'): jsPDF {
         let doc = pdf.gerarPdf([], true, undefined, undefined, undefined, "l");
@@ -66,7 +66,7 @@ export class ContasLevantadasComponent extends ContasComponent {
             doc.text(` ${this.contasView.controls['acaoOriginaria']}`, 39, proxlinha, { align: alginText })
         }
         if (this.contasView.controls['numProcesso']) {
-            doc.text(`Número do Processo no TRF5: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
+            doc.text(`Número do Processo no ASC: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
             doc.text(` ${this.contasView.controls['numProcesso']}`, 59, proxlinha, { align: alginText })
         }
         if (this.contasView.controls['numRequisitorio']) {
@@ -134,7 +134,7 @@ export class ContasLevantadasComponent extends ContasComponent {
             }
             proxlinha += (DIF_BETWEEN_LINE * 2)
             //doc.getTextDimensions(dLine).y;
-            //var splitText = doc.splitTextToSize(dLine, 185);      
+            //var splitText = doc.splitTextToSize(dLine, 185);
             if (dLine) {
                 //Adicionado Pag.
 
@@ -149,7 +149,7 @@ export class ContasLevantadasComponent extends ContasComponent {
                     doc.text(`Emitido em: ${DATE_NOW} ${HOUR_NOW}`, p_orientation == 'l' ? 240 : 140, 20);
                     doc.setFontSize(FONT_SIZE_BODY)
                 }
-                //Dados                                
+                //Dados
                 doc.text(String(dLine[field[0]]), configPdf.dimensionsWField[0], proxlinha, { align: 'left' })
 
                 doc.text(String(dLine[field[1]]), configPdf.dimensionsWField[1], proxlinha += (DIF_BETWEEN_LINE * 2), { align: 'left' })

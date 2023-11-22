@@ -21,18 +21,18 @@ export class ContasCanceladasComponent extends ContasComponent {
         this.contasView.breadcrumbs = [this.contasView.breadcrumbs[0], {title:this.contasView.title}]
     }
 
-    override async onSearch(urlParams: { page: number } = { page: 0 }): Promise<void> {  
+    override async onSearch(urlParams: { page: number } = { page: 0 }): Promise<void> {
         let requestContas = getRequestContas(this.contasView.chkGroup, this.contasView.controls)
         if (requestContas.valid) {
             requestContas.urlParams!.page = urlParams.page;
             utils.loading(
                 this.contasCancelService.searchByCheck(requestContas, this.contasView.chkGroup).then(res => {
-                    if (!!res) {                        
+                    if (!!res) {
                         let _content = []
                         if (!res.empty) {
                             //Refinar as Colunas. Alguams propriedades vinheram fora do p
                             _content = res.content.map(function (item:any) {
-                                
+
                                 return {
                                     ...item
                                     , varaDescr: `${"Vara não encontrada"}`
@@ -115,7 +115,7 @@ export class ContasCanceladasComponent extends ContasComponent {
             doc.text(` ${this.contasView.controls['acaoOriginaria']}`, 39, proxlinha, { align: alginText })
         }
         if (this.contasView.controls['numProcesso']) {
-            doc.text(`Número do Processo no TRF5: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
+            doc.text(`Número do Processo no ASC: `, INI_PARAGRAF, proxlinha += DIF_BETWEEN_LINE, { align: alginText })
             doc.text(` ${this.contasView.controls['numProcesso']}`, 59, proxlinha, { align: alginText })
         }
         if (this.contasView.controls['numRequisitorio']) {
@@ -183,9 +183,9 @@ export class ContasCanceladasComponent extends ContasComponent {
             }
             proxlinha += (DIF_BETWEEN_LINE * 2)
             //doc.getTextDimensions(dLine).y;
-            //var splitText = doc.splitTextToSize(dLine, 185);      
+            //var splitText = doc.splitTextToSize(dLine, 185);
             if (dLine) {
-                //Adicionado Pag.        
+                //Adicionado Pag.
                 if ((proxlinha + (DIF_BETWEEN_LINE * 4)) >= INI_FOOTER) {
                     //doc.addPage()
                     doc.addPage()
@@ -197,7 +197,7 @@ export class ContasCanceladasComponent extends ContasComponent {
                     doc.text(`Emitido em: ${DATE_NOW} ${HOUR_NOW}`, p_orientation == 'l' ? 240 : 140, 20);
                     doc.setFontSize(FONT_SIZE_BODY)
                 }
-                //Dados                                
+                //Dados
                 doc.text(String(dLine[field[0]]), configPdf.dimensionsWField[0], proxlinha, { align: 'left' })
 
                 doc.text(String(dLine[field[1]]), configPdf.dimensionsWField[1], proxlinha += (DIF_BETWEEN_LINE * 1.3), { align: 'left' })

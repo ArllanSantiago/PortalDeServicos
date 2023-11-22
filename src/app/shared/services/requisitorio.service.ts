@@ -31,10 +31,10 @@ export const CONSULTAPROCESSO_MOCK: ResponseConsultaReq = {
     , dataautuacao: new Date('2022-02-17T10:17:34')
     , datadistribuição: new Date('2022-02-17T10:41:49')
     , nomemagistrado: 'Relator DESEMBARGADOR(A) FEDERAL PRESIDENTE ARLLAN FELIPE'
- 
+
     , movimentos: [
         {
-           
+
             datamov: new Date('2021-02-02T21:18:00')
             ,codfase: 999
             ,descfase: 'O requisitório foi entregue ao ESPARTA e aguarda início da autuação.'
@@ -43,17 +43,17 @@ export const CONSULTAPROCESSO_MOCK: ResponseConsultaReq = {
             ,agencia: undefined
             ,conta: undefined
             ,datadeposito:undefined
-            
+
         }
         , {
             datamov: new Date('2021-02-03T14:09:00')
             , codfase: 888
-            , descfase: 'Requisitório autuado com sucesso. Número do processo no TRF5: 0217594-32.2021.4.05.0000'
+            , descfase: 'Requisitório autuado com sucesso. Número do processo no ASC: 0217594-32.2021.4.05.0000'
             , beneficiario: undefined
             , banco: undefined
             , agencia: undefined
             , conta: undefined
-            , datadeposito: undefined 
+            , datadeposito: undefined
         }
         , {
             datamov: new Date('2022-03-09T16:46:27')
@@ -88,7 +88,7 @@ export type ResponseConsultaReqMov = {
     datamov: Date
     codfase: number
     descfase: string
-    beneficiario?: string  
+    beneficiario?: string
     banco?: string
     agencia?: string
     conta?: string

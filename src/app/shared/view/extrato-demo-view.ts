@@ -6,7 +6,7 @@ import { ResponsePagination } from "src/app/shared/model/response-pagination.mod
 
 export class ExtratoDemoView {
     constructor(private showDetail: (e: any) => void) {
-       
+
     }
     controls: { [key: string]: FormControl } = {
          numProcesso: new FormControl('', { initialValueIsDefault:true, updateOn: 'change', validators: [Validators.required] })
@@ -27,7 +27,7 @@ export class ExtratoDemoView {
             ,{ headerName: HeaderGridExtrato.situacao, field: "situacao", resizable: true, sortable: true, width: 600, filter: true }
             ,{ headerName: HeaderGridExtrato.dataAutuacao, field: "dataAutuacao", resizable: true, sortable: true, width: 600, filter: true }
             ,{ headerName: HeaderGridExtrato.dataDeposito, field: "dataDeposito", resizable: true, sortable: true, width: 600, filter: true }
-            ,{ headerName: HeaderGridExtrato.numeroTrf5, field: "numeroTrf5", resizable: true, sortable: true, width: 600, filter: true }
+            ,{ headerName: HeaderGridExtrato.numeroASC, field: "numeroASC", resizable: true, sortable: true, width: 600, filter: true }
             ,{ headerName: HeaderGridExtrato.acoes, field: "acoes", resizable: true, sortable: true, width: 600, filter: true }
         ]
         , data: new ResponsePagination()

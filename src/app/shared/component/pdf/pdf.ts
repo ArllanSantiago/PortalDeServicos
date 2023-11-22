@@ -11,8 +11,8 @@ export class pdf{
           format: 'a4',
           putOnlyUsedFonts: true
         });
-    
-    
+
+
         var proxlinha = 15
         var page = 1
         var dNow = new Date();
@@ -22,10 +22,10 @@ export class pdf{
         doc.setFontSize(9)
         doc.text(`Página:${page}`, p_orientation == 'l' ? 240 : 140, 15)
         doc.text(`Emitido em: ${localdate} ${hNow}`, p_orientation == 'l' ? 240 : 140, 20);
-    
+
         if (usarCabPadrao == true) {
           var img = new Image();
-          img.src = "assets/img/trf5banner.jpeg";
+          img.src = "assets/img/ASCbanner.jpeg";
           doc.addImage(img, 'PNG', 4, 1, 70, 30);
           doc.setFont("cambria", "bold", 14)
           doc.setFontSize(14)
@@ -40,7 +40,7 @@ export class pdf{
             proxlinha = 70
           }
         }
-    
+
         var espEntreLinha = 4
         var pageHeight = doc.internal.pageSize.height;
         var textOptions: TextOptionsLight;
@@ -54,7 +54,7 @@ export class pdf{
           if ((p_texto.indexOf(linha) >= relPerson!.iniCabPerson!
             && p_texto.indexOf(linha) < relPerson!.fimCadPerson!) ||
             p_texto.indexOf(linha) == relPerson!.fimCadPerson ||
-    
+
             (p_texto.indexOf(linha) >= relPerson!.iniRodaPePerson!
               && p_texto.indexOf(linha) < relPerson!.fimRodaPePerson!) ||
             p_texto.indexOf(linha) == relPerson!.fimRodaPePerson
@@ -63,8 +63,8 @@ export class pdf{
           } else {
             textOptions.align = "left"
           }
-    
-          //Inicio do Paragrafo      
+
+          //Inicio do Paragrafo
           if (textOptions.align == 'center') {
             iniParagraf = 100
           } else {

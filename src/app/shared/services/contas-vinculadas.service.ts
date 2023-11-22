@@ -23,7 +23,7 @@ export class ContasVinculadasService implements RequestSearchhByAnyServiceInterf
         }
     }
 
-    public searchByAutuac(filter: RequestSearchByAny): Promise<ResponsePagination|undefined> {              
+    public searchByAutuac(filter: RequestSearchByAny): Promise<ResponsePagination|undefined> {
         return this.http.post<ResponsePagination|undefined>(`${this.api.APIContaVinc}/pesquisaPorDocumento`, filter).toPromise()
     }
     public searchByNumSeq(filter: RequestSearchByAny): Promise<ResponsePagination|undefined> {
@@ -33,7 +33,7 @@ export class ContasVinculadasService implements RequestSearchhByAnyServiceInterf
         return this.http.post<ResponsePagination|undefined>(`${this.api.APIContaVinc}/pesquisaPorAcaoOriginaria?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()
     }
     public searchByNumProc(filter: RequestSearchByAny): Promise<ResponsePagination|undefined> {
-        return this.http.post<ResponsePagination|undefined>(`${this.api.APIContaVinc}/pesquisaNumeroProcessoNoTrf5?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()
+        return this.http.post<ResponsePagination|undefined>(`${this.api.APIContaVinc}/pesquisaNumeroProcessoNoASC?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()
     }
     public searchByNumReq(filter: RequestSearchByAny): Promise<ResponsePagination|undefined> {
         return this.http.post<ResponsePagination|undefined>(`${this.api.APIContaVinc}/pesquisaPorRequisitorio?sort=${filter.urlParams?.sort}&page=${filter.urlParams?.page}`, filter.data).toPromise()

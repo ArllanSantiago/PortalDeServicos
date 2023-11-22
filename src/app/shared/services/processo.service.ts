@@ -23,19 +23,19 @@ export class ProcessoService {
     }
 
     getProcessoByNumDocParte(numDocParte: string, secao:string): Observable<any> {
-        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.trf5.gov.br/CpfouCnpj/${numDocParte}/${secao}`)
+        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.ASC.gov.br/CpfouCnpj/${numDocParte}/${secao}`)
     }
     getProcessoByNumOab(numOab: string, secao:string):  Observable<any> {
-        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.trf5.gov.br/NumeroOAB/${numOab}/${secao}`)
+        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.ASC.gov.br/NumeroOAB/${numOab}/${secao}`)
     }
     getProcessoByNomeParte(NomeParte: string , secao: string, nomeExtato:boolean = false):  Observable<any> {
-        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.trf5.gov.br/NomeDaParte/${NomeParte}/${secao}/${nomeExtato}`)
+        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.ASC.gov.br/NomeDaParte/${NomeParte}/${secao}/${nomeExtato}`)
     }
     getDetalheProcesso(numproc: string, secao: string): Observable<any> {
-        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.trf5.gov.br/processo/${secao !== 'TR' ? secao : "esparta"}/${numproc}`)
+        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.ASC.gov.br/processo/${secao !== 'TR' ? secao : "esparta"}/${numproc}`)
     }
     getDetalheMovimento(numproc: string, secao: string): Observable<any> {
-        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.trf5.gov.br/movimento/${secao !== 'TR' ? secao + '/' : ""}{numProcesso}?numeroProcesso=${numproc}`)
+        return this.http.get(`http://intercomunicacaoapi-eagle-hml.apps.ocp.ASC.gov.br/movimento/${secao !== 'TR' ? secao + '/' : ""}{numProcesso}?numeroProcesso=${numproc}`)
     }
 }
 
