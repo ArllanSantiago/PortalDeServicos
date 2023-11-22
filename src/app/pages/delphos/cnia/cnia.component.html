@@ -1,0 +1,39 @@
+<h2 class="brand-text font-weight-light">CNIA</h2>
+<div class="card card-primary">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default card-tabs">
+                    <div class="card-body">
+                        <!--Processo-->
+                        <form role="formCnia" [formGroup]="formCnia">
+                            <div class="row">
+                                <app-num-processo-filter class="col-md-4"
+                                    [formGroupMaster]="formCnia"></app-num-processo-filter>
+
+                                <app-data-intervalo-filter class="col-md-4" [formGroupMaster]="formCnia"
+                                    controlNameIni="dataIni" controlNameFin="dataFin"
+                                    tittle="Data de Envio."></app-data-intervalo-filter>
+
+                                <app-radio-comum-filter class="col-md-4" [formGroupMaster]="formCnia"
+                                    [lista]="[{value:'1', descr:'Apenas Pendentes'},{value:'2', descr:'Apenas Enviadas'}]"
+                                    controlName="situacao" tittle="Situação"></app-radio-comum-filter>
+                            </div>
+                        </form>
+                        <div class="d-flex mt-4 justify-content-end">
+                            <button class="btn btn-info mr-2" style="width:247px;" (click)="onSearch()">
+                                <i class="fa fa-search"></i> Consultar
+                            </button>
+                            <button class="btn btn-secondary" style="width:247px;" (click)="onClearControl()">
+                                <i class="fa fa-eraser"></i> Limpar
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <app-grid-basic [grid]="cniaView.grid"></app-grid-basic>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<form *ngIf="formGroupMaster.controls['numRequisitorio']" [formGroup]="formGroupMaster">
+    <div  class="form-group">
+        <label for="numRequisitorio">Número do Requisitório</label>
+        <input type="text" class="form-control"  id="numRequisitorio" placeholder="exemplo:2017840021"
+            formControlName="numReq">
+        <div *ngIf="!formGroupMaster.controls['numRequisitorio'].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>
+    </div>
+</form>

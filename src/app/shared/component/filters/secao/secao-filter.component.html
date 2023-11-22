@@ -1,0 +1,11 @@
+<form *ngIf="formGroupMaster.controls['secao']" [formGroup]="formGroupMaster">
+  <div  class="form-group">
+    <label for="secao">Seção</label>
+    <select class="custom-select" id="secao" formControlName="secao">
+      <option *ngFor="let secao of lsSecao" [value]="secao.value">{{secao.descr}}</option>
+    </select> 
+    <div *ngIf="!formGroupMaster.controls['secao'].valid" class="feedback-invalid">
+      {{feedBackInvalid}}
+    </div>
+  </div>
+</form>

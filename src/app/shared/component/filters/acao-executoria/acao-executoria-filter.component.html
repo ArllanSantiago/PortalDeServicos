@@ -1,0 +1,10 @@
+<form *ngIf="formGroupMaster.controls['acaoExecutoria']" [formGroup]="formGroupMaster">
+    <div  class="form-group">
+        <label for="acaoExecutoria">{{title}}</label>
+        <input type="text" class="form-control"  placeholder="exemplo:01411122234"
+            formControlName="acaoExecutoria">
+        <div *ngIf="!formGroupMaster.controls['acaoExecutoria'].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>
+    </div>
+</form>

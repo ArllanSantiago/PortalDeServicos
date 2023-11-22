@@ -1,0 +1,66 @@
+<div class="card card-secondary">
+    <div class="card-header">
+        <h2 class="brand-text font-weight-light">{{ctrl.descr}}</h2>
+    </div>
+    <div class="card-body">
+        <div *ngFor="let autuacao  of dashAutuacao">
+            <h3>{{autuacao.title}}</h3>
+            <hr>
+
+            <h4 class="mt-3"> {{autuacao.donuts.title}} </h4>
+            <div class="row justify-content-center">
+                <app-donut-chart class="col-md-2" *ngFor="let donut of autuacao.donuts.charts"
+                    [idChart]="dashAutuacao.indexOf(autuacao)+donut.idChart" [tittle]="donut.tittle"
+                    [datasets]="donut.dataSets" [nameColumns]="donut.columns"></app-donut-chart>            
+            </div>
+
+            <h4 class="mt-3"> {{autuacao.line.title}} </h4>
+            <app-line-chart [idChart]="dashAutuacao.indexOf(autuacao)+autuacao.line.chart.idChart"
+                [datasets]='autuacao.line.chart.dataSets' [nameColumns]="autuacao.line.chart.columns">
+            </app-line-chart>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-3 col-6">
+                        <div class="description-block border-right">
+                            <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
+                            <h5 class="description-header">1.035.210.43</h5>
+                            <span class="description-text">AUTUADOS DO ANO {{year-1}}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-3 col-6">
+                        <div class="description-block border-right">
+                            <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i>
+                                0%</span>
+                            <h5 class="description-header">1.035.210.43</h5>
+                            <span class="description-text">AUTUADOS DO ANO {{year}}</span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-3 col-6">
+                        <div class="description-block border-right">
+                            <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
+                            <h5 class="description-header">1.035.210.43</h5>
+                            <span class="description-text">PREVISAO DE AUTUACAO</span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-3 col-6">
+                        <div class="description-block">
+                            <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i>
+                                18%</span>
+                            <h5 class="description-header">1200</h5>
+                            <span class="description-text">GOAL COMPLETIONS</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

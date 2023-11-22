@@ -1,0 +1,12 @@
+<form *ngIf="formGroupMaster.controls[controlName]"  [formGroup]="formGroupMaster">
+    <div  class="form-group d-flex align-items-center">
+        <label></label>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" [id]='id' [formControlName]=controlName>
+            <label class="form-check-label" [for]='id'>{{tittle}}</label>
+        </div>       
+        <div *ngIf="!formGroupMaster.controls[controlName].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>
+    </div>
+</form>

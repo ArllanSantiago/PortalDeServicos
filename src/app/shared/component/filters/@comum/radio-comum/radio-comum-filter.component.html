@@ -1,0 +1,9 @@
+<form *ngIf="formGroupMaster.controls[controlName]" [formGroup]="formGroupMaster">
+  <div [id]="controlName" class="form-group">
+    <label class="w-100 mb-1" for="dataAutuacao">{{tittle}}</label>
+    <div *ngFor='let item of lista' class="form-check">
+      <input class="form-check-input" type="radio" [name]="controlName" [checked] = 'lista[0] == item'>
+      <label class="form-check-label">{{item.descr}}</label>
+    </div>    
+  </div>
+</form>

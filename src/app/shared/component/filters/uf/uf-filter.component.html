@@ -1,0 +1,14 @@
+<form *ngIf="formGroupMaster.controls['codUf']" [formGroup]="formGroupMaster">
+    <div class="form-group">
+        <label for="uf">{{title}}</label>
+        <select class="form-control form-control-sm input-group-prepend" 
+            formControlName="codUf">
+            <option [ngValue]="u.coduf" *ngFor=" let u of ufs">
+               {{u.coduf}} 
+            </option>
+        </select>
+        <div *ngIf="!formGroupMaster.controls['codUf'].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>
+    </div>  
+</form>

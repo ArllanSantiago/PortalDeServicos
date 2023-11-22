@@ -1,0 +1,9 @@
+
+<div class="col-md-12">
+    <div *ngFor="let group of controlGroupDash">
+        <div *ngFor="let ctrl of group.controls">
+            <app-info-autuacao [ctrl]="ctrl" *ngIf="ctrl.active && ctrl.id == 'ctrlAutuacao'" class="card card-secondary">
+            </app-info-autuacao>
+        </div>
+    </div>
+</div>

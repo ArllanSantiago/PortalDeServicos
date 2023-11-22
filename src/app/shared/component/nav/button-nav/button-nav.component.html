@@ -1,0 +1,6 @@
+<div *ngIf="!!nav" class="d-flex mt-3">                                
+    <button *ngFor="let btn of nav" [class]="btn.typeAction == 'search' ? 'btn w-50 mx-1  btn-primary':' btn w-50 mx-1  btn-danger'"  (click)="btn.click()"
+      [disabled]="btn.disabled">
+        <i [class]="btn.iconClass"></i> {{btn.title}}
+    </button>    
+</div>  

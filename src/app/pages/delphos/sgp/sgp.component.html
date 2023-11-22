@@ -1,0 +1,40 @@
+<h2 class="brand-text font-weight-light">SGP</h2>
+<div class="card card-primary">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default card-tabs">
+                    <div class="card-body">
+                        <!--Processo-->
+                        <form role="formSgp" [formGroup]="formSgp">
+                            <div class="row">
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formSgp" tittle="Relatório"
+                                    [lista]="[{value:'', descr:'teste'}]" controlName="tipoRelatorio">
+                                </app-combo-comum-filter>
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formSgp" tittle="Lote"
+                                    [lista]="[{value:'', descr:'teste'}]" controlName="lote"></app-combo-comum-filter>
+                                <app-texto-comum-filter class="col-md-3" [formGroupMaster]="formSgp"
+                                    controlName="cnpjEntidade" tittle="CNPJ Entidade" id="sgpCnpjEnt">
+                                </app-texto-comum-filter>
+                                <app-texto-comum-filter class="col-md-3" [formGroupMaster]="formSgp"
+                                    controlName="entidade" tittle="Entidade" id="sgpDescrEntidade">
+                                </app-texto-comum-filter>
+                            </div>
+                        </form>
+                        <div class="d-flex mt-4 justify-content-end">
+                            <button class="btn btn-info mr-2" style="width:247px;" (click)="onSearch()">
+                                <i class="fa fa-search"></i> Consultar
+                            </button>
+                            <button class="btn btn-secondary" style="width:247px;" (click)="onClearControl()">
+                                <i class="fa fa-eraser"></i> Limpar
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <app-grid-basic [grid]="sgpView.grid"></app-grid-basic>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</div>

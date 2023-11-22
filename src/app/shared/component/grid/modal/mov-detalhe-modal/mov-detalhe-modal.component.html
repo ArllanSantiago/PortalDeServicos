@@ -1,0 +1,88 @@
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{dataMovDetalhe.title}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" style="min-height: 480px ">
+        <ul class="nav nav-tabs"  id="custom-content-below-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link docs-creator active" id="custom-content-below-processo-tab" data-toggle="pill"
+              href="#custom-content-below-processo" role="tab" aria-controls="custom-content-below-processo"
+              aria-selected="true">Processo</a>
+          </li>
+          <li *ngIf="dataMovDetalhe.partes.length > 0" class="nav-item">
+            <a class="nav-link docs-creator" id="custom-content-below-parte-tab" data-toggle="pill"
+              href="#custom-content-below-parte" role="tab" aria-controls="custom-content-below-parte"
+              aria-selected="false">Partes</a>
+          </li>
+          <li *ngIf="dataMovDetalhe.movimentos.length > 0" class="nav-item">
+            <a class="nav-link docs-creator" id="custom-content-below-mov-tab" data-toggle="pill"
+              href="#custom-content-below-mov" role="tab" aria-controls="custom-content-below-mov"
+              aria-selected="false">Movimentos</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="custom-content-below-tabContent">
+          <div class="tab-pane fade active show" id="custom-content-below-processo" role="tabpanel"
+            aria-labelledby="custom-content-below-processo-tab">
+            <div class="card p-2 " style="overflow: auto; max-height: 20rem;">
+              <table>
+                <tr *ngFor="let res of dataMovDetalhe.resumo">
+                  <td><strong>{{ res.key }}</strong></td>
+                  <td>{{ res.value }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="custom-content-below-parte" role="tabpanel"
+            aria-labelledby="custom-content-below-parte-tab">
+            <div class="card p-2" style="overflow: auto; max-height: 20rem;">
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th *ngFor="let header of dataMovDetalhe.partes[0]">{{header.key}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let parte of dataMovDetalhe.partes">
+                      <td *ngFor="let atributo of parte">{{ atributo.value }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="custom-content-below-mov" role="tabpanel"
+            aria-labelledby="custom-content-below-mov-tab">
+            <div class="card p-2" style="overflow: auto; max-height: 20rem;" >
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-wrap ">
+                  <thead>
+                    <tr>
+                      <th *ngFor="let header of dataMovDetalhe.movimentos[0]">{{header.key}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let mov of dataMovDetalhe.movimentos">
+                      <td *ngFor="let atributo of mov" > 
+                        {{ atributo.value }}           
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

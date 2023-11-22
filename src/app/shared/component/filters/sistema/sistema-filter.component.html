@@ -1,0 +1,11 @@
+<form *ngIf="formGroupMaster.controls['sistema']" [formGroup]="formGroupMaster">
+  <div  class="form-group">
+    <label for="sistema">Sistema</label>
+    <select class="custom-select" id="sistema" formControlName="sistema">
+      <option *ngFor="let sistema of lsSistema" [value]="sistema.value">{{sistema.descr}}</option>
+    </select> 
+    <div *ngIf="!formGroupMaster.controls['sistema'].valid" class="feedback-invalid">
+      {{feedBackInvalid}}
+    </div>
+  </div>
+</form>

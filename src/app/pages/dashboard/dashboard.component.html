@@ -1,0 +1,24 @@
+<div [class]="classMain" style="height: auto;">
+  <div class="wrapper">
+    <app-navbar></app-navbar>
+    <app-setting>
+    </app-setting>
+    <app-sidebar></app-sidebar>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      
+      <section class="content">
+        <div class="container-fluid pt-5" [@routerTransition]="getState(out)">
+          <router-outlet #out="outlet">
+          </router-outlet>
+        </div>
+        <!--/. container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <app-footer></app-footer>
+  </div>
+  <!-- ./wrapper -->
+</div>

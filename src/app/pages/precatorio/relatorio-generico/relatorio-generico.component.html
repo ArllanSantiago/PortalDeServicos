@@ -1,0 +1,334 @@
+<h2 class="brand-text font-weight-light">Relatório Genérico</h2>
+<div class="card card-primary">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default card-tabs">
+                    <div class="card-body">
+                        <!--Processo-->
+                        <form role="formGenerico" [formGroup]="formGenerico">
+                            <div class="row">
+                                <app-radio-comum-filter class="col-md-2" [formGroupMaster]="formGenerico"
+                                    [lista]="[{value:'1', descr:'Precatório'},{value:'2', descr:'Rpv'}]"
+                                    controlName="classeProcessual" tittle="Classe Processual"></app-radio-comum-filter>
+
+                                <app-num-processo-filter class="col-md-3"
+                                    [formGroupMaster]="formGenerico"></app-num-processo-filter>
+
+                                <app-data-intervalo-filter class="col-md-4" [formGroupMaster]="formGenerico"
+                                    controlNameIni="dataIni" controlNameFin="dataFin"
+                                    tittle="Intervalo de Atuação"></app-data-intervalo-filter>
+
+                                <app-texto-intervalo-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    controlNameIni="intervaloIni" controlNameFin="intervaloFin"
+                                    tittle="Intervalo Sequencial"></app-texto-intervalo-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Tipo de Despesa Orç."
+                                    [lista]="[{value:'', descr:'01 Despesa Teste'}, {value:'', descr:'02 Despesa Teste'}, {value:'', descr:'03 Despesa Teste'}]"
+                                    controlName="tipoDespesa">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Natureza de Despesa Orç."
+                                    [lista]="[{value:'', descr:'319091 - Alimentar Teste'}, {value:'', descr:'339091 - FRGPS/Outros Teste'}, {value:'', descr:'459091 - Capital Teste'}]"
+                                    controlName="naturezaDespesa">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Natureza Processual"
+                                    [lista]="[{value:'', descr:'Tributária Teste'}, {value:'', descr:'Não Tributária Teste'}]"
+                                    controlName="naturezaProcessual">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Natureza de Crédito"
+                                    [lista]="[{value:'', descr:'Comum Teste'}, {value:'', descr:'Alimentar Teste'}]"
+                                    controlName="naturezaCredito">
+                                </app-combo-comum-filter>
+
+                                <app-check-comum-filter class="col-md-1 d-flex align-items-center"
+                                    [formGroupMaster]="formGenerico" controlName="entidadeFederal" tittle="Federal"
+                                    id="entidadeFederal"></app-check-comum-filter>
+
+                                <app-check-comum-filter class="col-md-1 d-flex align-items-center"
+                                    [formGroupMaster]="formGenerico" controlName="entidadeEstadual" tittle="Estadual"
+                                    id="entidadeEstadual"></app-check-comum-filter>
+
+                                <app-check-comum-filter class="col-md-1 d-flex align-items-center"
+                                    [formGroupMaster]="formGenerico" controlName="entidadeFederal" tittle="Municipal"
+                                    id="entidadeMunicipal"></app-check-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Individualização"
+                                    [lista]="[{value:'', descr:'Não Informado - Teste'}, {value:'', descr:'Individualizados- Teste'}, {value:'', descr:'Não Individualizados- Teste'}]"
+                                    controlName="individualizado">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Unid. Gestora - SIAFI"
+                                    [lista]="[{value:'', descr:'Todas - Teste'}, {value:'', descr:'90031 - Teste'}, {value:'', descr:'90052 - Teste'}]"
+                                    controlName="unidadeGestora">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Individualização"
+                                    [lista]="[{value:'', descr:'Todas - Teste'}, {value:'', descr:'001 - Banco do Brasil - Teste'}, {value:'', descr:'104 - Caixa Econômica - Teste'}]"
+                                    controlName="instituicaoBancaria">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="Situação Atual (Extra Orç.)"
+                                    [lista]="[{value:'', descr:'Não Informado - Teste'}, {value:'', descr:'Andamento - Teste'}, {value:'', descr:'Liquidado - Teste'}]"
+                                    controlName="situacaoAtual">
+                                </app-combo-comum-filter>
+
+                                <app-texto-comum-filter class="col-md-6" [formGroupMaster]="formGenerico"
+                                    tittle="Lote de Pagamento" controlName="lotePagamento" id="lotePagamento">
+                                </app-texto-comum-filter>
+
+                                <app-texto-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                    tittle="CPF/CNPJ" controlName="cpfCnpj" id="cpfCnpj">
+                                </app-texto-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-6" [formGroupMaster]="formGenerico"
+                                    tittle="Assunto CNJ"
+                                    [lista]="[{value:'', descr:'Assunto CNJ - 00000001 00000001 00000001 00000001 - Teste'}, 
+                                                                    {value:'', descr:'Assunto CNJ - 00000002 00000002 00000002 00000002 - Teste'}]"
+                                    controlName="assuntoCnj">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-6" [formGroupMaster]="formGenerico"
+                                    tittle="Assunto CJF"
+                                    [lista]="[{value:'', descr:'Assunto CJF - 00000001 00000001 00000001 00000001 - Teste'}, 
+                                                                    {value:'', descr:'Assunto CJF - 00000002 00000002 00000002 00000002 - Teste'}]"
+                                    controlName="assuntoCjf">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-6" [formGroupMaster]="formGenerico"
+                                    tittle="Entidade Devedora"
+                                    [lista]="[{value:'', descr:'Assunto Entidade Devedora - 00000001 00000001 00000001 00000001 - Teste'}, 
+                                                                    {value:'', descr:'Assunto Entidade Devedora - 00000002 00000002 00000002 00000002 - Teste'}]"
+                                    controlName="entidadeDevedora">
+                                </app-combo-comum-filter>
+
+                                <app-combo-comum-filter class="col-md-6" [formGroupMaster]="formGenerico"
+                                    tittle="Unidade Executada"
+                                    [lista]="[{value:'', descr:'Assunto Unidade Executada - 00000001 00000001 00000001 00000001 - Teste'}, 
+                                                                    {value:'', descr:'Assunto Unidade Executada - 00000002 00000002 00000002 00000002 - Teste'}]"
+                                    controlName="unidadeExecutada">
+                                </app-combo-comum-filter>
+                            </div>
+                            <div class="card card-secondary card-tabs">
+                                <div class="card-header">
+                                    <h3 class="card-title">Local de Origem</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <app-combo-comum-filter class="col-md-1" [formGroupMaster]="formGenerico"
+                                            tittle="UF"
+                                            [lista]="[{value:'', descr:'AL'}, {value:'', descr:'CE'}, {value:'', descr:'PB'}, {value:'', descr:'PE'}]"
+                                            controlName="uf">
+                                        </app-combo-comum-filter>
+
+                                        <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                            tittle="Cidade"
+                                            [lista]="[{value:'', descr:'Não Informado - Teste'}, {value:'', descr:'Alagoas - Teste'}]"
+                                            controlName="cidade">
+                                        </app-combo-comum-filter>
+
+                                        <app-combo-comum-filter class="col-md-5" [formGroupMaster]="formGenerico"
+                                            tittle="Justiça Originária"
+                                            [lista]="[{value:'', descr:'Não Informado - Teste'}, {value:'', descr:'1 - Justiça Estadual - Teste'}]"
+                                            controlName="justicaOriginaria">
+                                        </app-combo-comum-filter>
+
+                                        <app-combo-comum-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                            tittle="Vara"
+                                            [lista]="[{value:'', descr:'Não Informado - Teste'}, {value:'', descr:'1ª Vara Federal de Alagoas - Teste'}]"
+                                            controlName="vara">
+                                        </app-combo-comum-filter>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card card-secondary card-tabs">
+                                <div class="card-header">
+                                    <h3 class="card-title">Processos que Possuem</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="tramitacaoAtiva"
+                                            tittle="Tramitacao Ativa" id="tramitacaoAtiva"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="alvara" tittle="Alvara"
+                                            id="alvara"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="pagamentoSuplementar"
+                                            tittle="Pagamento Suplementar"
+                                            id="pagamentoSuplementar"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="parcelaSuperpreferencial"
+                                            tittle="Parcela Superpreferencial"
+                                            id="parcelaSuperpreferencial"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="conferidoPagamento"
+                                            tittle="Conferido para Pagamento"
+                                            id="conferidoPagamento"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="parcelamentoEspecial"
+                                            tittle="Parcelamento Especial Proporcional"
+                                            id="parcelamentoEspecial"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="sobrestamento"
+                                            tittle="sobrestamento" id="sobrestamento"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="valorCompensar"
+                                            tittle="Valor a Compensar" id="valorCompensar"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="restricaoPagamento"
+                                            tittle="Restricao de Pagamento"
+                                            id="restricaoPagamento"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="reembolsoSecaoJudiciaria"
+                                            tittle="Reembolso a Seção Judiciária"
+                                            id="reembolsoSecaoJudiciaria"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="processoReincluidos"
+                                            tittle="Processo Reincluidos"
+                                            id="processoReincluidos"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="espolio" tittle="Espólio"
+                                            id="espolio"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="incapaz" tittle="Incapaz"
+                                            id="incapaz"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="idoso" tittle="Idoso"
+                                            id="idoso"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="doencaGrave"
+                                            tittle="Doença Grave" id="doencaGrave"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="deficienciaFisica"
+                                            tittle="Deficiência Física" id="deficienciaFisica"></app-check-comum-filter>
+
+                                        <app-check-comum-filter class="col-md-3 d-flex align-items-center"
+                                            [formGroupMaster]="formGenerico" controlName="valorAtualizado"
+                                            tittle="Valor Atualizado Superior a 60 Salários Minimos"
+                                            id="valorAtualizado"></app-check-comum-filter>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-secondary card-tabs">
+                                <div class="card-header">
+                                    <h3 class="card-title">Movimentações</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <app-combo-comum-filter class="col-md-2" [formGroupMaster]="formGenerico"
+                                            tittle="Tipo de Fase"
+                                            [lista]="[{value:'', descr:'Externa'}, {value:'', descr:'Interna'}]"
+                                            controlName="tipo">
+                                        </app-combo-comum-filter>
+
+
+
+                                        <app-combo-pesquisa-filter class="col-md-4" [formGroupMaster]="formGenerico"
+                                            tittle="Fase"
+                                            [lista]="[{value:'', descr:'1 - Distribução'}, {value:'', descr:'2 - Redistribuição'}, {value:'', descr:'3 - Registro'}]"
+                                            controlName="faseExterna">
+                                        </app-combo-pesquisa-filter>
+
+                                        
+
+
+                                            <app-combo-comum-filter class="col-md-6" [formGroupMaster]="formGenerico"
+                                                tittle="Complemento 1"
+                                                [lista]="[{value:'', descr:'Não Informado - Teste'}, {value:'', descr:'Alagoas - Teste'}]"
+                                                controlName="complemento1Externa">
+                                            </app-combo-comum-filter>
+
+                                            <app-combo-comum-filter class="col-md-6" [formGroupMaster]="formGenerico"
+                                                tittle="Complemento 2"
+                                                [lista]="[{value:'', descr:'Não Informado - Teste'}, {value:'', descr:'1 - Justiça Estadual - Teste'}]"
+                                                controlName="complemento1Externa">
+                                            </app-combo-comum-filter>
+
+                                            <app-data-intervalo-filter class="col-md-3" [formGroupMaster]="formGenerico"
+                                                controlNameIni="dataIniMovimentacaoExterna"
+                                                controlNameFin="dataFinMovimentacaoExterna"
+                                                tittle="Intervalo de fase"></app-data-intervalo-filter>
+
+                                            <app-check-comum-filter class="col-md-1 d-flex align-items-center"
+                                                [formGroupMaster]="formGenerico" controlName="naoExisteFaseExterna"
+                                                tittle="Não Existe" id="naoExisteFase"></app-check-comum-filter>
+
+                                            <app-check-comum-filter class="col-md-1 d-flex align-items-center"
+                                                [formGroupMaster]="formGenerico" controlName="ultimaFaseExterna"
+                                                tittle="Última Fase" id="ultimaFase"></app-check-comum-filter>
+
+                                            <div class="mt-4 justify-content-end">
+                                                <button class="btn btn-info mr-2" style="width:118px;"
+                                                    aria-label="Scroll to top">
+                                                    <i class="fa fa-plus">
+                                                    </i> Incluir</button>
+                                            </div>
+                                    </div>
+                                    <app-grid-basic [grid]="relatorioGenericoView.gridExterna"></app-grid-basic>
+
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <div class="d-flex mt-4 justify-content-end back-to-top" style="margin: 0 27px 30px 0;" >
+                            <button class="btn btn-info mr-2 shadow" style="width:247px;" aria-label="Scroll to top">
+                                <i class="fa fa-search">
+                                </i> Buscar</button>
+
+                            <button class="btn btn-secondary mr-2 shadow" style="width:247px;"
+                                aria-label="Scroll to top">
+                                <i class="fa fa-eraser">
+                                </i> Limpar</button>
+                        </div>
+                    </div>
+
+                    <!-- /.card -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</div>

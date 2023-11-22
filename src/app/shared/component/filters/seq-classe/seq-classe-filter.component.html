@@ -1,0 +1,23 @@
+<form *ngIf="formGroupMaster.controls['numSeqIni'] && formGroupMaster.controls['numSeqFin'] "
+    [formGroup]="formGroupMaster">
+ 
+    <div class="form-group">    
+        <label for="numSeq">{{title}}</label>
+        <div class="row">
+            <div class="input-group row col-md-6 mr-3">
+                <label for="seqIni" class="col-form-label col-sm-2">De</label>
+                <input type="text" class="form-control col-sm-10" placeholder="exemplo:01411122234" formControlName="numSeqIni">
+                <div *ngIf="!formGroupMaster.controls['numSeqIni'].valid" class="feedback-invalid col-sm-12">
+                    {{feedBackInvalid}}
+                </div>
+            </div>               
+            <div class="input-group row col-md-6">
+                <label for="seqFin" class="col-form-label col-sm-2">Até</label>
+                <input type="text" class="form-control col-sm-10" placeholder="exemplo:01411122234" formControlName="numSeqFin">
+                <div *ngIf="!formGroupMaster.controls['numSeqFin'].valid" class="feedback-invalid col-sm-12">
+                    {{feedBackInvalid}}
+                </div>
+            </div>  
+        </div>                                 
+    </div>
+</form>

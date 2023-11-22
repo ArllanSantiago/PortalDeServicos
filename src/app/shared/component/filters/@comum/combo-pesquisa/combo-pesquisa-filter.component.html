@@ -1,0 +1,12 @@
+<form *ngIf="formGroupMaster.controls[controlName]" [formGroup]="formGroupMaster">
+  <div class="form-group">
+    <label [for]="controlName">{{tittle}}</label>
+
+    <select class="custom-select" [id]="controlName" [formControlName]="controlName">
+      <option *ngFor="let item of lista" [value]="item.value">{{item.descr}}</option>
+    </select>
+    <div *ngIf="!formGroupMaster.controls[controlName].valid" class="feedback-invalid">
+      {{feedBackInvalid}}
+    </div>
+  </div>
+</form>

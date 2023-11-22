@@ -1,0 +1,10 @@
+<form *ngIf="formGroupMaster.controls['anoMes']" [formGroup]="formGroupMaster">
+    <div  class="form-group">
+        <label for="anoMes">Ano Mês</label>
+        <input type="text" class="form-control"  id="anoMes" placeholder="exemplo:202008"
+            formControlName="anoMes">
+        <div *ngIf="!formGroupMaster.controls['anoMes'].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>
+    </div>
+</form>

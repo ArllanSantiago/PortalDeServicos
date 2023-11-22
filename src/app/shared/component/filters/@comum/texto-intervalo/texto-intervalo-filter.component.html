@@ -1,0 +1,17 @@
+<form *ngIf="formGroupMaster.controls[controlNameIni]"  [formGroup]="formGroupMaster">
+    <div id="dataIntervalo" class="form-group">
+      <label class="w-100" for="dataAutuacao">{{tittle}}</label>
+      <div class="row">
+        <div class="input-group  col-md-6">      
+          <input type="text" [formControlName]="controlNameIni" class="form-control float-right" >
+        </div>
+        <div class="input-group  col-md-6">        
+          <input type="text" [formControlName]="controlNameFin" class="form-control float-right" >
+        </div>
+      </div>
+      <div *ngIf="!formGroupMaster.controls[controlNameIni].valid || !formGroupMaster.controls[controlNameFin].valid " 
+      class="feedback-invalid">
+        {{feedBackInvalid}}
+      </div>
+    </div>
+  </form>

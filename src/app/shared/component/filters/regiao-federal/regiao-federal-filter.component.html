@@ -1,0 +1,11 @@
+<form *ngIf="formGroupMaster.controls['regiaoFederal']" [formGroup]="formGroupMaster">
+  <div  class="form-group">
+    <label for="regiaofederal">Região Federativa</label>
+    <select class="custom-select" id="regiaofederal" formControlName="regiaoFederal">
+      <option *ngFor="let regiaofederal of lsRegiaofederal" [value]="regiaofederal.value">{{regiaofederal.descr}}</option>
+    </select> 
+    <div *ngIf="!formGroupMaster.controls['regiaoFederal'].valid" class="feedback-invalid">
+      {{feedBackInvalid}}
+    </div>
+  </div>
+</form>

@@ -1,0 +1,9 @@
+<form *ngIf="formGroupMaster.controls[controlName]" [formGroup]="formGroupMaster">
+  <div  class="form-group">
+    <label [for]="controlName">{{tittle}}</label>
+    <input type="text" class="form-control" [id]="controlName" [formControlName]="controlName">
+    <div *ngIf="!formGroupMaster.controls[controlName].valid" class="feedback-invalid">
+      {{feedBackInvalid}}
+    </div>
+  </div>
+</form>

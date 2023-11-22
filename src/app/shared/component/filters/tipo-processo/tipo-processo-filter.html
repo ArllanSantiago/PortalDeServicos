@@ -1,0 +1,11 @@
+<form  [formGroup]="formGroupMaster">
+  <div  class="form-group">
+      <label for="tipoProc">Tipo de Processo</label>
+      <select class="custom-select" id="codTipoProc" formControlName="codTipoProc">
+        <option  *ngFor="let tipoProc of lsTipoProc" [value]="tipoProc.value">{{tipoProc.descr}}</option>
+    </select>
+      <div *ngIf="!formGroupMaster.controls['codTipoProc'].valid" class="feedback-invalid">
+          {{feedBackInvalid}}
+      </div>
+  </div>
+</form>

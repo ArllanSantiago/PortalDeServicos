@@ -1,0 +1,83 @@
+<div class="mb-5 mt-5 p-2">
+  <h2>{{reqSituacaoView.title}}</h2>
+  <h4>{{reqSituacaoView.subTitle}}</h4>
+  <div class="col-sm-6" id="breadcrumb">
+    <app-bread-crumb [crumbs]=reqSituacaoView.breadcrumbs></app-bread-crumb>
+  </div>
+  <div *ngIf="false" class="card">
+    <div class="card card-header">
+      <div class="card-title">dados da contas</div>
+    </div>
+    <div class="card card-body">
+      <p>docum: {{reqSituacaoFilter.documento}}</p>
+      <p>periodo de autuação: de {{reqSituacaoFilter.dataIni }} até {{reqSituacaoFilter.dataFin}}</p>
+      <p>tipo de processo: {{reqSituacaoFilter.codTipoProc}} </p>
+      <p>ordenar: {{reqSituacaoFilter.ordenacao}}</p>
+      <p>numproc: {{reqSituacaoFilter.numProcesso}}</p>
+      <p>acao orig: {{reqSituacaoFilter.acaoOriginaria}}</p>
+      <p>acao exec: {{reqSituacaoFilter.acaoExecutoria}}</p>
+      <p>Requisitorio: {{reqSituacaoFilter.numRequisitorio}}</p>
+      <p>Sequencial: de {{reqSituacaoFilter.numSeqIni}} até {{reqSituacaoFilter.numSeqFin}}</p>
+      <p>Unidade Federativa: {{reqSituacaoFilter.codUf}}</p>
+    </div>
+  </div>
+
+  <hr class="mb-5">
+  <div class="row m-3" id="search">
+    <div id="chks" class="form-group col-sm-4 mb-5">
+      <h3>Consultar por</h3>
+      <hr class="mb-3">
+      <div *ngFor="let op of reqSituacaoView.opConsulta" class="">
+        <input [(ngModel)]="reqSituacaoView.chkGroup" type="radio" [value]="op.valor" name="reqSituacaoView.chkGroup">
+        {{op.descricao}}
+      </div>
+    </div>
+    <div class="col-sm-8" id="filters">
+      <h3>Filtros</h3>
+      <hr class="mb-3">
+      <app-doc-pessoa-filter> </app-doc-pessoa-filter>
+      <div *ngIf="['1'].includes(reqSituacaoView.chkGroup)">
+        <app-seq-classe-filter></app-seq-classe-filter>
+      </div>
+      <div *ngIf="['2'].includes(reqSituacaoView.chkGroup)">
+        <app-acao-originaria-filter></app-acao-originaria-filter>
+      </div>
+      <div *ngIf="['3'].includes(reqSituacaoView.chkGroup)">
+        <app-num-processo-filter></app-num-processo-filter>
+      </div>
+      <div *ngIf="['4'].includes(reqSituacaoView.chkGroup)">
+        <app-num-requisitorio-filter></app-num-requisitorio-filter>
+      </div>
+      <div *ngIf="['5'].includes(reqSituacaoView.chkGroup)">
+        <app-uf-filter></app-uf-filter>
+        <app-vara-filter></app-vara-filter>
+      </div>
+      <div *ngIf="['6'].includes(reqSituacaoView.chkGroup)">
+        <app-acao-executoria-filter></app-acao-executoria-filter>
+      </div>
+
+      <div *ngIf="['0','2','5','6'].includes(reqSituacaoView.chkGroup)">
+        <app-data-intervalo-filter> </app-data-intervalo-filter>
+      </div>
+      <div *ngIf="reqSituacaoView.chkGroup !=''">
+        <app-tipo-processo-filter></app-tipo-processo-filter>
+        <app-ordenacao-filter></app-ordenacao-filter>
+      </div>      
+    </div>
+  </div>
+  <div class="row m-3 justify-content-center px-2" id="buttons">
+    <hr class="mb-2">
+    <button class="btn btn-outline-danger m-2 w-25" (click)="onClear()">Limpar</button>
+    <button class="btn btn-outline-primary m-2 w-25" (click)="onSearch()">Pesquisar</button>
+    <hr class="mt-2">
+  </div>
+  <div class="row m-3" id="result">
+    <app-grid-basic [grid]=reqSituacaoView.grid (goPage)="onSearch($event)"></app-grid-basic>
+    <div class="d-flex justify-content-end" *ngIf="reqSituacaoView.grid.data.content.length > 0">
+      <app-pdf [nameArq]="reqSituacaoView.title" [data]="reqSituacaoView.pdf">
+
+      </app-pdf>
+      <app-xlsx [nameArq]="reqSituacaoView.title" [data]="this.reqSituacaoView.dataRel"></app-xlsx>
+    </div>
+  </div>
+</div>

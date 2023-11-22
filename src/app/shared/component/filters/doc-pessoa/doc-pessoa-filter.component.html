@@ -1,0 +1,11 @@
+<!--cpfcnpj-->
+<form *ngIf="formGroupMaster.controls['documento']" [formGroup]="formGroupMaster">
+    <div  class="form-group">
+        <label for="documento">{{title}}</label>
+        <input type="text" class="form-control"  placeholder="exemplo:01411122234"
+            formControlName="documento">
+        <div *ngIf="!formGroupMaster.controls['documento'].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>
+    </div>
+</form>

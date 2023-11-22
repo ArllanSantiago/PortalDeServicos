@@ -1,0 +1,16 @@
+<form *ngIf="formGroupMaster.controls['codVara']" [formGroup]="formGroupMaster">
+    <div  class="form-group">
+        <label for="codvara">{{title}}</label>        
+        <div class="col-auto col-sm-12 pl-0">
+            <select class="form-control form-control-sm input-group-prepend" id="vara"
+                formControlName="codVara">    
+                <option [ngValue]="vara.codvara" *ngFor=" let vara of varas">
+                    {{vara.descr}}
+                </option>
+            </select>              
+            <div *ngIf="!formGroupMaster.controls['codVara'].valid" class="feedback-invalid">
+                {{feedBackInvalid}}
+            </div>
+        </div>        
+    </div>
+</form>

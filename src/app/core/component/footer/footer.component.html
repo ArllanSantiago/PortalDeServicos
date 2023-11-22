@@ -1,0 +1,11 @@
+<!-- Main Footer -->
+<footer class="main-footer text-center p-0">
+    <div class="card border-light collapsed-card m-0">
+        
+        <a role="button" (click)="onClick()" data-toggle="collapse" href="#collapseExample" class="m-2" data-card-widget="collapse">                          
+            <b>Versão</b> {{SYSTEM_DATA.version}} <i [class]="iconClass"></i></a>
+        <div class="card-body p-0" style="overflow: auto; max-height: 250px;">
+            <app-time-line></app-time-line>
+        </div>
+    </div>
+</footer>

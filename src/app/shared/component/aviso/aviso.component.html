@@ -1,0 +1,24 @@
+<section class="content">
+    <div class="painel alert alert-secondary">    
+      <div class="m-2">
+        <div class="row">
+          <h1><i class="fa fa-info-circle text-blue m-2"></i></h1>
+          <h1> Página não encontrada!</h1>
+        </div>
+        <div>
+          <h4>
+            Caso ocorra algum problema favor entrar em contato
+            pelo email <a href="mailto:suportedelphos@mps.com.br">suportedelphos@mps.com.br</a>
+          </h4>
+        </div>
+        <div [hidden]=!existeErro class="col-12 mb-2 p-0" >                    
+            <div style="word-wrap: break-word;">
+                <span class="text-bold text-lg">STATUS: </span><span>{{AvisoStatus}}-{{AvisoStatusText}}</span><br>
+                <span class="text-bold text-lg">ERRO: </span><span>{{AvisoMessage}}</span>
+            </div>
+        </div>
+        <a routerLink="/">voltar</a>
+      </div>
+    
+    </div>
+  </section>

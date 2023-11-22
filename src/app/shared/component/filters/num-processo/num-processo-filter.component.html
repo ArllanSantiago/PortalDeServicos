@@ -1,0 +1,10 @@
+<form *ngIf="formGroupMaster.controls['numProcesso']" [formGroup]="formGroupMaster">
+    <div  class="form-group">
+        <label for="numProcesso">Número do Processo</label>
+        <input type="text" class="form-control"  id="numProcesso" placeholder="exemplo:2017840021"
+            formControlName="numProcesso">
+        <div *ngIf="!formGroupMaster.controls['numProcesso'].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>
+    </div>
+</form>

@@ -1,0 +1,90 @@
+<h2 class="brand-text font-weight-light">Extrato Demonstrativo</h2>
+<div class="card card-primary">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default card-tabs">
+                    <div class="card-header p-0 pt-1">
+                        <!--Tabs-->
+                        <ul class="nav nav-tabs" id="custom-tabs-five-tab" role="tablist">
+                            <li class="nav-item" (click)="onClearControl()">
+                                <a class="nav-link active" id="tab-parte-tab" data-toggle="pill" href="#tab-parte"
+                                    role="tab" aria-controls="tab-parte" aria-selected="true">Buscar por Parte</a>
+                            </li>
+                            <li class="nav-item" (click)="onClearControl()">
+                                <a class="nav-link" id="tab-especif-tab" data-toggle="pill" href="#tab-especif"
+                                    role="tab" aria-controls="tab-especif" aria-selected="false">Buscar por
+                                    Específica</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <!--Panels-->
+                        <div class="tab-content" id="tabs">
+                            <div class="tab-pane show active" id="tab-parte" role="tabpanel"
+                                aria-labelledby="tab-parte-tab">
+                                <!--Parte-->
+                                <form role="formParte" [formGroup]="formParte">
+                                    <div class="row">
+                                        <app-combo-comum-filter class="col-md-4" [formGroupMaster]="formParte"
+                                            tittle="Tipo de Requisitório"
+                                            [lista]="[{value:'', descr:'Ambos'},{value:'388' ,descr:'PRC'},{value:'399' ,descr:'RPV'}]"
+                                            controlName="tipoReq"></app-combo-comum-filter>
+                                        <app-texto-comum-filter class="col-md-4" [formGroupMaster]="formParte"
+                                            controlName="numOab" tittle="OAB" id="extrOab">
+                                        </app-texto-comum-filter>
+
+                                        <app-texto-comum-filter class="col-md-4" [formGroupMaster]="formParte"
+                                            controlName="numDocPess" tittle="Documento(CPF/CNPJ)" id="extrDocPess">
+                                        </app-texto-comum-filter>
+                                    </div>
+                                    <div class="row">
+                                        <app-data-intervalo-filter class="col-md-4" [formGroupMaster]="formParte"
+                                            controlNameIni="dataAutuacaoIni" controlNameFin="dataAutuacaoFin"
+                                            tittle="Data de Autuação."></app-data-intervalo-filter>
+
+                                        <app-data-intervalo-filter class="col-md-4" [formGroupMaster]="formParte"
+                                            controlNameIni="dataDepositoIni" controlNameFin="dataDepositoFin"
+                                            tittle="Data de Deposito."></app-data-intervalo-filter>
+                                    </div>
+                                </form>
+                                <!--***-->
+                            </div>
+                            <div class="tab-pane fade" id="tab-especif" role="tabpanel"
+                                aria-labelledby="tab-especif-tab">
+                                <!--Especifico-->
+                                <form role="formEspecifico" [formGroup]="formEspecifico">
+                                    <div class="row">
+                                        <app-combo-comum-filter class="col-md-4" [formGroupMaster]="formEspecifico"
+                                            tittle="Tipo de Requisitório"
+                                            [lista]="[{value:'', descr:'Ambos'},{value:'388' ,descr:'PRC'},{value:'399' ,descr:'RPV'}]"
+                                            controlName="tipoReq">
+                                        </app-combo-comum-filter>
+                                        <app-num-processo-filter class="col-md-4" [formGroupMaster]="formEspecifico">
+                                        </app-num-processo-filter>
+                                        <app-num-requisitorio-filter class="col-md-4"
+                                            [formGroupMaster]="formEspecifico">
+                                        </app-num-requisitorio-filter>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="d-flex mt-4 justify-content-end">
+                                <button class="btn btn-info mr-2" style="width:247px;" (click)="onSearch()">
+                                    <i class="fa fa-search"></i> Consultar
+                                </button>
+                                <button class="btn btn-secondary" style="width:247px;" (click)="onClearControl()">
+                                    <i class="fa fa-eraser"></i> Limpar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.Tabs -->
+                <app-grid-basic [grid]="extratoView.grid"></app-grid-basic>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</div>

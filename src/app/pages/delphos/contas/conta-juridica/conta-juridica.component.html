@@ -1,0 +1,54 @@
+<h2 class="brand-text font-weight-light">Conta Juridica</h2>
+<div class="card card-primary">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-default card-tabs">
+                    <div class="card-header p-0 pt-1">
+
+                    </div>
+                    <div class="card-body">
+                        <!--ContaJuridica-->
+                        <form role="formContaJuridica" [formGroup]="formContaJuridica">
+                            <div class="row">
+                                <app-ano-mes-filter class="col-md-4" [formGroupMaster]="formContaJuridica">
+                                </app-ano-mes-filter>
+                                <app-combo-comum-filter class="col-md-4" [formGroupMaster]="formContaJuridica"
+                                    tittle="Banco" [lista]="[{value:'0', descr:'CEF'},{value:'1', descr:'BB'}]"
+                                    controlName="banco">
+                                </app-combo-comum-filter>
+                                <app-num-processo-filter class="col-md-4" [formGroupMaster]="formContaJuridica">
+                                </app-num-processo-filter>
+
+
+                            </div>
+                            <div class="row">
+                                <app-texto-comum-filter class="col-md-4" [formGroupMaster]="formContaJuridica"
+                                    controlName="nomeBenef" tittle="Nome do Beneficiario" id="cjNomeBenef">
+                                </app-texto-comum-filter>
+                                <app-check-comum-filter class="col-md-4 d-flex align-items-center "
+                                    [formGroupMaster]="formContaJuridica" controlName="nomeExato" tittle="Nome Exato"
+                                    id="cjNomeExato"></app-check-comum-filter>
+                            </div>
+                        </form>
+                        <!--***-->
+
+
+                        <div class="d-flex mt-4 justify-content-end">
+                            <button class="btn btn-info mr-2" style="width:247px;" (click)="onSearch()">
+                                <i class="fa fa-search"></i> Consultar
+                            </button>
+                            <button class="btn btn-secondary" style="width:247px;" (click)="onClearControl()">
+                                <i class="fa fa-eraser"></i> Limpar
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.Tabs -->
+                <app-grid-basic [grid]="contaJuridicaView.grid"></app-grid-basic>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</div>

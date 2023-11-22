@@ -1,0 +1,83 @@
+<h2 class="brand-text font-weight-light">{{contasView.title}}</h2>
+<h4>{{contasView.subTitle}}</h4>
+<div class="col-sm-6 d-flex mr-0 p-0" id="breadcrumb">
+  <app-bread-crumb [crumbs]=contasView.breadcrumbs></app-bread-crumb>
+</div>
+<!-- TESTE 
+   <div *ngIf="false" class="card">
+    <div class="card card-header">
+      <div class="card-title">dados da contas</div>
+    </div>
+    <div class="card card-body">
+      <p>docum: {{contasFilter.documento}}</p>
+      <p>periodo de autuação: de {{contasFilter.dataIni }} até {{contasFilter.dataFin}}</p>
+      <p>tipo de processo: {{contasFilter.codTipoProc}} </p>
+      <p>ordenar: {{contasFilter.ordenacao}}</p>
+      <p>numproc: {{contasFilter.numProcesso}}</p>
+      <p>acao orig: {{contasFilter.acaoOriginaria}}</p>
+      <p>acao exec: {{contasFilter.acaoExecutoria}}</p>
+      <p>Requisitorio: {{contasFilter.numRequisitorio}}</p>
+      <p>Sequencial: de {{contasFilter.numSeqIni}} até {{contasFilter.numSeqFin}}</p>
+      <p>Unidade Federativa: {{contasFilter.codUf}}</p>
+    </div>
+  </div>-->
+<div class="card card-primary">
+  <div class="card-body">
+    <div class="w-100 row m-0" id="search">
+      <div id="chks" class="form-group col-sm-4 mb-5">
+        <h3>Consultar por</h3>
+        <hr class="mb-3">
+        <div *ngFor="let op of contasView.opConsulta" class="">
+          <input [(ngModel)]="this.contasView.chkGroup" type="radio" [value]="op.valor" name="this.contasView.chkGroup">
+          {{op.descricao}}
+        </div>
+      </div>
+      <div class="col-sm-8" id="filters">
+        <h3>Filtros</h3>
+        <hr class="mb-3">
+        <form role="form" [formGroup]="formContas">
+          <app-doc-pessoa-filter [formGroupMaster]="formContas"></app-doc-pessoa-filter>
+          <div *ngIf="['1'].includes(this.contasView.chkGroup)">
+            <app-seq-classe-filter [formGroupMaster]="formContas"></app-seq-classe-filter>
+          </div>
+          <div *ngIf="['2'].includes(this.contasView.chkGroup)">
+            <app-acao-originaria-filter [formGroupMaster]="formContas"></app-acao-originaria-filter>
+          </div>
+          <div *ngIf="['3'].includes(this.contasView.chkGroup)">
+            <app-num-processo-filter [formGroupMaster]="formContas"></app-num-processo-filter>
+          </div>
+          <div *ngIf="['4'].includes(this.contasView.chkGroup)">
+            <app-num-requisitorio-filter [formGroupMaster]="formContas"></app-num-requisitorio-filter>
+          </div>
+
+          <!--<div *ngIf="['6'].includes(this.contasView.chkGroup)">
+            <app-acao-executoria-filter [formGroupMaster]="formContas"></app-acao-executoria-filter>
+          </div>-->
+
+          <div *ngIf="['0','2','5','6'].includes(this.contasView.chkGroup)">
+            <app-data-intervalo-filter [formGroupMaster]="formContas" tittle="Período de Autuação"
+              controlNameIni="dataIni" controlNameFin="dataFin"> </app-data-intervalo-filter>
+          </div>
+          <app-tipo-processo-filter [formGroupMaster]="formContas"></app-tipo-processo-filter>
+          <app-ordenacao-filter [formGroupMaster]="formContas" [listaOrdenacao]="contasView.lsOrdem">
+          </app-ordenacao-filter>
+        </form>
+      </div>
+    </div>
+    <div class="d-flex mt-4 justify-content-end">
+
+      <button class="btn btn-info m-2" style="width:247px;" (click)="this.onSearch()"><i class="fa fa-search"></i> Pesquisar</button>
+      <button class="btn btn-secondary m-2" style="width:247px;"><i class="fa fa-eraser"></i> Limpar</button>
+      
+    </div>
+
+    <div class="row m-3" id="result">
+      <app-grid-basic class="w-100" [grid]=contasView.grid (goPage)="onSearch($event)"></app-grid-basic>
+      <div class="d-flex justify-content-end" *ngIf="contasView.grid.data.content.length > 0">
+        <app-pdf [nameArq]="contasView.title" [data]="contasView.pdf">
+        </app-pdf>
+        <app-xlsx [nameArq]="contasView.title" [data]="this.contasView.dataRel"></app-xlsx>
+      </div>
+    </div>
+  </div>
+</div>

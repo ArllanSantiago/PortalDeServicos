@@ -1,0 +1,17 @@
+<form [formGroup]="formGroupMaster">
+  <div  class="form-group">
+    <label class="w-100" for="dataAutuacao">Data de Autuacao</label>
+    <div class="row">
+      <div class="input-group  col-md-6">      
+        <input type="date" formControlName="dataAutuacaoIni" class="form-control float-right" id="dateIni">
+      </div>
+      <div class="input-group  col-md-6">        
+        <input type="date" formControlName="dataAutuacaoFin" class="form-control float-right" id="dateFin">
+      </div>
+    </div>
+    <div *ngIf="!formGroupMaster.controls['dataAutuacaoIni'].valid || !formGroupMaster.controls['dataAutuacaoFin'].valid " 
+    class="feedback-invalid">
+      {{feedBackInvalid}}
+    </div>
+  </div>
+</form>

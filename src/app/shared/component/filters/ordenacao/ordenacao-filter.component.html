@@ -1,0 +1,14 @@
+<form *ngIf="formGroupMaster.controls['ordenacao']" [formGroup]="formGroupMaster">
+    <div  class="form-group">
+        <label for="ordenacao">Ordenar Por</label>
+        <div id="ordenarPor" class="d-flex  col-auto col-sm-8" style="flex-wrap: wrap;">
+            <div *ngFor="let ord of listaOrdenacao" class="form-check form-check-inline p-1">
+                <input type="radio" formControlName="ordenacao" id="order" [value]=ord.valor>
+                <label class="form-check-labelb m-2" for="tipodocReq">{{ord.descricao}}</label>
+            </div>
+        </div>
+        <div *ngIf="!formGroupMaster.controls['ordenacao'].valid" class="feedback-invalid">
+            {{feedBackInvalid}}
+        </div>           
+    </div>
+</form>

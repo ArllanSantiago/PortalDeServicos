@@ -1,0 +1,35 @@
+<!-- Control Sidebar settings-->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+  <div class="p-3 control-sidebar-content">
+    <div class="user-panel pb-1 d-flex">
+      <h6> <i class="fa fa-cog"></i> Opções</h6>
+    </div>
+    <div class="row my-3 justify-content-center">
+      <div class="custom-control custom-switch">
+        <input type="checkbox"  (change)="applySettings($event)" id="theme"
+          class="custom-control-input">
+        <label class="custom-control-label" for="theme">Tema Escuro</label>
+      </div>
+    </div>
+
+    <div *ngFor="let group of settingPreferences.controlGroupDash" class="card card-secondary collapsed-card" style="background-color: gray;" [hidden]="false" >
+      <div class="card-header p-1">
+        <div class="card-title text-wrap col-md-10">
+          <label [for]="group.id" style="cursor:'pointer';"><small>{{group.descr}}</small></label></div>
+        <div class="card-tools justify-content-center pr-2">
+          <button [id]="group.id" type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body px-1">        
+        <div *ngFor="let controlDash of group.controls" class="custom-control custom-switch" [hidden]="!controlDash.enabled">
+          <input type="checkbox" [checked]="controlDash.active" (change)="applySettings($event)" [id]="controlDash.id" class="custom-control-input">
+          <label class="custom-control-label" [for]="controlDash.id" style="cursor:'pointer';"><small>{{controlDash.descr}}</small></label>
+        </div>                                    
+      </div>
+    </div>
+  </div>
+</aside>
+<!-- /.control-sidebar -->

@@ -1,0 +1,56 @@
+<body class="login-page pace-success" [@routerTransition]="true">
+    <div class="login-box">
+        <div class="login-logo">
+            <div><img src="assets/imagens/Logo_JF_TRF5_cor200widget.png" /></div>
+            <p><small style="font-family:Geneva ">{{SYSTEM_DATA.name}}</small></p>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Por favor, efetue o login para continuar</p>
+                <form [formGroup]="loginForm" id="formLogi">
+                    <h6 class="mb-1"> <small>Instituição de Trabalho</small></h6>
+                    <div class="input-group mb-3">
+                        <select formControlName="session" class="form-control">
+                            <option [ngValue]="session" *ngFor="let session of SYSTEM_DATA.Sessions">
+                                {{session.name}}
+                            </option>
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fa fa-map-marker"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" formControlName="login" placeholder="Usuário de Rede">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fa fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" formControlName="password"
+                            placeholder="Senha de Rede">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="width: 100%;">
+                        <button (click)="signIn()" [disabled]="loginForm.invalid || btnSignIn.disable"
+                            class="btn btn-success btn-block">{{btnSignIn.title}}</button>
+                    </div>
+                </form>
+            </div>
+            <p style="text-align: center">Fale Conosco <span class="fa fa-users"></span></p>
+            <!-- /.login-card-body -->
+            <p style="margin-bottom: 0px; margin-top: 5%; text-align: center">versão {{SYSTEM_DATA.version}}<span
+                    class=""></span></p>
+        </div>
+    </div>
+</body>
